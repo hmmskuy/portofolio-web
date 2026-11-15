@@ -1,0 +1,326 @@
+/* ==================== GLOBAL & TYPOGRAPHY ==================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+/* ==================== HERO & CHARACTER ANIMATIONS ==================== */
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(1.5deg);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-character-float {
+    animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+.animate-blink {
+    animation: blink 0.8s infinite;
+}
+
+/* ==================== ABOUT ME SCROLL REVEAL & BADGES ==================== */
+.reveal-scroll-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.reveal-scroll-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.reveal-active {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+@keyframes badgeFloatSlow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.animate-float-slow {
+    animation: badgeFloatSlow 4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Interactive Single-Letter Name Pop */
+@keyframes singleLetterPop {
+    0% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        color: inherit;
+        filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0));
+    }
+    30% {
+        transform: scale(1.5) translateY(-12px) rotate(-8deg);
+        color: #38bdf8;
+        filter: drop-shadow(0 0 12px rgba(56, 189, 248, 1)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.9));
+    }
+    60% {
+        transform: scale(0.9) translateY(2px) rotate(4deg);
+        color: #a855f7;
+    }
+    100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        color: inherit;
+        filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0));
+    }
+}
+
+.single-letter-interactive {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.single-letter-interactive:hover {
+    transform: scale(1.25) translateY(-3px);
+    color: #60a5fa;
+}
+
+.animate-single-letter {
+    animation: singleLetterPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+}
+
+/* ==================== ORGANISASI CINEMATIC CARDS ==================== */
+@keyframes heroicOrbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.35;
+    }
+    50% {
+        transform: translate(20px, -25px) scale(1.15);
+        opacity: 0.65;
+    }
+}
+
+@keyframes borderBeam {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.heroic-orb-1 {
+    animation: heroicOrbFloat 8s ease-in-out infinite alternate;
+}
+
+.heroic-orb-2 {
+    animation: heroicOrbFloat 10s ease-in-out infinite alternate-reverse;
+}
+
+.org-cinematic-card {
+    opacity: 0;
+    transform: translateY(55px) rotateX(-8deg) scale(0.96);
+    filter: blur(10px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+    perspective: 1000px;
+}
+
+.org-cinematic-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+    filter: blur(0);
+}
+
+.heroic-card-container {
+    position: relative;
+    background: rgba(11, 13, 27, 0.75);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroic-card-container::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.45), rgba(56, 189, 248, 0.15));
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+}
+
+.heroic-card-container:hover::before {
+    opacity: 1;
+    animation: borderBeam 3.5s ease infinite;
+}
+
+.heroic-card-container:hover {
+    transform: translateY(-5px) scale(1.008);
+    box-shadow: 0 20px 40px -12px rgba(79, 70, 229, 0.3), 0 0 25px -5px rgba(56, 189, 248, 0.2);
+}
+
+/* ==================== PRESTASI TIMELINE & SHIMMER ==================== */
+@keyframes lineGlow {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 200%;
+    }
+}
+
+.timeline-line-animated {
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+    background-size: 100% 200%;
+    animation: lineGlow 4s linear infinite;
+}
+
+@keyframes doublePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.8), 0 0 0 0 rgba(139, 92, 246, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0), 0 0 0 16px rgba(139, 92, 246, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0), 0 0 0 0 rgba(139, 92, 246, 0);
+    }
+}
+
+.timeline-node {
+    animation: doublePulse 2.5s infinite;
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+.shimmer-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer-container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.25) 100%);
+    transform: rotate(30deg);
+    transition: none;
+}
+
+.shimmer-container:hover::after {
+    animation: shine 0.85s ease-in-out;
+}
+
+.timeline-item-scroll {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-from-top {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.hidden-to-bottom {
+    opacity: 0 !important;
+    transform: translateY(-40px) scale(0.95) !important;
+}
+
+.reveal-from-bottom {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.hidden-to-top {
+    opacity: 0 !important;
+    transform: translateY(40px) scale(0.95) !important;
+}
+
+details[open] summary ~ * {
+    animation: fadeInDetail 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInDetail {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== CONTACT MARQUEE (LUSION STYLE) ==================== */
+@keyframes marqueeRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.animate-marquee-right {
+    display: flex;
+    width: max-content;
+    animation: marqueeRight 18s linear infinite !important;
+    animation-play-state: running !important;
+    pointer-events: none;
+}

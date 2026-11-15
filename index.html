@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - {{ data.nama }}</title>
+    <title>Home - Hammam</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,11 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <style>
-        /* {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        } */
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-gray-950 text-gray-100 antialiased selection:bg-blue-500 selection:text-white">
@@ -28,20 +25,19 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/80">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="#home" class="text-lg font-bold text-white tracking-wider flex items-center gap-2">
-                <img src="{{ url_for('static', filename='Futuristic_H_Code.jpg') }}" alt="Logo"
-                    class="w-24 h-24 object-contain">
-                {{ data.nama }}
+                <img src="static/Futuristic_H_Code.jpg" alt="Logo Hammam" class="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-lg">
+                Hammam
             </a>
 
-            <!-- Navbar
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-6 text-sm font-medium" id="desktop-nav">
                 <a href="#home"
                     class="nav-link text-blue-400 font-semibold border-b-2 border-blue-400 pb-1 transition">Home</a>
                 <a href="#about" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">About Me</a>
+                <a href="#organisasi" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">Organisasi</a>
                 <a href="#skills" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">Skills</a>
                 <a href="#portfolio" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">Portfolio</a>
-                <a href="#organisasi" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">Organisasi</a>
+                <a href="#prestasi" class="nav-link text-gray-300 hover:text-blue-400 pb-1 transition">Prestasi</a>
                 <a href="#contact"
                     class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Contact</a>
             </nav>
@@ -61,26 +57,25 @@
         <!-- Mobile Menu Container -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-4 space-y-2">
             <a href="#home" class="mobile-nav-link block text-blue-400 font-medium py-2 transition">Home</a>
-            <a href="#about" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">About
-                Me</a>
+            <a href="#about" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">About Me</a>
+            <a href="#organisasi" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Organisasi</a>
             <a href="#skills" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Skills</a>
-            <a href="#portfolio"
-                class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Portfolio</a>
-            <a href="#organisasi"
-                class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Organisasi</a>
+            <a href="#portfolio" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Portfolio</a>
+            <a href="#prestasi" class="mobile-nav-link block text-gray-300 hover:text-blue-400 py-2 transition">Prestasi</a>
             <a href="#contact" class="mobile-nav-link block text-blue-400 font-medium py-2 transition">Contact</a>
         </div>
     </header>
 
     <!-- Container Utama -->
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 space-y-12 md:space-y-16">
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 md:pt-28 md:pb-14 space-y-12 md:space-y-16">
+
         <!-- ================= SECTION HOME ================= -->
         <section id="home"
             class="relative scroll-mt-24 flex flex-col lg:flex-row lg:items-center justify-between gap-8 overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-14 border border-gray-800 shadow-2xl">
 
             <!-- Gambar Latar Belakang (Gunung Salju) -->
             <div class="absolute inset-0 -z-20">
-                <img src="{{ url_for('static', filename='gunung.jpg') }}" alt="Background Gunung Salju"
+                <img src="static/gunung.jpg" alt="Background Gunung Salju"
                     class="w-full h-full object-cover object-center">
             </div>
 
@@ -94,13 +89,14 @@
                 <!-- Badge Peran -->
                 <span
                     class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono text-blue-400 bg-blue-500/20 border border-blue-500/30 rounded-full backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> {{ data.peran }}
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> Full-Stack Developer &amp; Hafidz Qur'an
                 </span>
 
                 <!-- Judul Utama dengan Animasi Ketikan & Kursor -->
                 <h1
                     class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug tracking-tight drop-shadow-md min-h-[3.5rem] flex items-center flex-wrap">
-                    <span id="typewriter-text" data-text="{{ data.hero_intro }}"></span>
+                    <span id="typewriter-text"
+                        data-text="Welcome to my portfolio! Explore my projects, discover my skills, and get to know me better."></span>
                     <span class="inline-block w-0.5 h-6 sm:h-7 ml-1 bg-blue-400 animate-blink"></span>
                 </h1>
 
@@ -118,7 +114,6 @@
             </div>
 
             <!-- 2. ELEMEN KARAKTER INTERAKTIF (KANAN) -->
-            <!-- ================= ELEMEN KARAKTER INTERAKTIF ================= -->
             <div id="character-card"
                 class="w-full lg:w-80 order-1 lg:order-2 flex justify-center items-center relative group select-none cursor-grab active:cursor-grabbing">
 
@@ -127,296 +122,13 @@
                     class="absolute w-60 h-60 bg-gradient-to-tr from-blue-600/40 via-indigo-500/30 to-emerald-400/20 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-500">
                 </div>
 
-                <!-- Foto Karakter Transparan (.png) -->
-                <img src="{{ url_for('static', filename='foto_gunung.jpg') }}" alt="Karakter {{ data.nama }}"
-                    class="character-img w-full max-w-[300px] h-auto object-contain filter drop-shadow-[0_15px_25px_rgba(59,130,246,0.5)] animate-character-float pointer-events-none">
+                <!-- Foto Karakter -->
+                <img src="static/foto_gunung.jpg" alt="Karakter Hammam"
+                    class="character-img w-full max-w-[300px] h-auto object-contain rounded-2xl filter drop-shadow-[0_15px_25px_rgba(59,130,246,0.5)] animate-character-float pointer-events-none">
             </div>
-
-            <!-- ================= CSS ANIMASI ================= -->
-            <style>
-                /* Animasi Melayang Mulus Bawaan */
-                @keyframes floatSlow {
-
-                    0%,
-                    100% {
-                        transform: translateY(0px) rotate(0deg);
-                    }
-
-                    50% {
-                        transform: translateY(-12px) rotate(1.5deg);
-                    }
-                }
-
-                .animate-character-float {
-                    animation: floatSlow 4.5s ease-in-out infinite;
-                }
-            </style>
-
-            <!-- ================= JAVASCRIPT (DRAG & FOLLOW MOUSE) ================= -->
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const charCard = document.getElementById("character-card");
-                    if (!charCard) return;
-
-                    const charImg = charCard.querySelector(".character-img");
-                    let isDragging = false;
-                    let startX = 0, startY = 0;
-                    let currentX = 0, currentY = 0;
-
-                    // 1. TEKAN & TAHAN (MOUSE DOWN / TOUCH START)
-                    charCard.addEventListener("pointerdown", (e) => {
-                        isDragging = true;
-
-                        // Catat posisi awal kursor relatif terhadap koordinat gambar saat ini
-                        startX = e.clientX - currentX;
-                        startY = e.clientY - currentY;
-
-                        // Matikan animasi float & hilangkan delay transition agar gerakan responsif seketika
-                        if (charImg) charImg.classList.remove("animate-character-float");
-                        charCard.style.transition = "none";
-
-                        // Kunci penangkap kursor agar drag tetap lancar meski mouse bergerak cepat keluar elemen
-                        charCard.setPointerCapture(e.pointerId);
-                    });
-
-                    // 2. GESER & IKUTI KURSOR (MOUSE MOVE / TOUCH MOVE)
-                    charCard.addEventListener("pointermove", (e) => {
-                        if (!isDragging) return;
-
-                        // Hitung posisi baru relatif terhadap pergeseran kursor
-                        currentX = e.clientX - startX;
-                        currentY = e.clientY - startY;
-
-                        // Pindahkan posisi elemen + beri rotasi tipis mengikuti arah geseran
-                        charCard.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${currentX * 0.05}deg) scale(1.08)`;
-                    });
-
-                    // 3. LEPAS TAHANAN (MOUSE UP / TOUCH END)
-                    const stopDragging = (e) => {
-                        if (!isDragging) return;
-                        isDragging = false;
-
-                        // Efek Membal (Spring Back) saat kembali ke posisi asal
-                        charCard.style.transition = "transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-                        charCard.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg) scale(1)";
-
-                        // Reset koordinat
-                        currentX = 0;
-                        currentY = 0;
-
-                        // Hidupkan kembali animasi melayang setelah animasi membal selesai
-                        setTimeout(() => {
-                            if (!isDragging && charImg) {
-                                charImg.classList.add("animate-character-float");
-                            }
-                        }, 700);
-                    };
-
-                    charCard.addEventListener("pointerup", stopDragging);
-                    charCard.addEventListener("pointercancel", stopDragging);
-                });
-            </script>
-
         </section>
 
-        <!-- ================= CSS ANIMASI ================= -->
-        <style>
-            /* Animasi Melayang Mulus Karakter */
-            @keyframes floatSlow {
-
-                0%,
-                100% {
-                    transform: translateY(0px) rotate(0deg);
-                }
-
-                50% {
-                    transform: translateY(-12px) rotate(1.5deg);
-                }
-            }
-
-            /* Kursor Ketikan Berkedip */
-            @keyframes blink {
-
-                0%,
-                100% {
-                    opacity: 1;
-                }
-
-                50% {
-                    opacity: 0;
-                }
-            }
-
-            .animate-character-float {
-                animation: floatSlow 4.5s ease-in-out infinite;
-            }
-
-            .animate-blink {
-                animation: blink 0.8s infinite;
-            }
-        </style>
-
-        <!-- ================= JAVASCRIPT INTEGRATED LOGIC ================= -->
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-
-                // -------------------------------------------------------------
-                // A. ANIMASI TYPEWRITER (RE-TRIGGER SAAT SCROLL KE ATAS & BAWAH)
-                // -------------------------------------------------------------
-                const typewriterTarget = document.getElementById("typewriter-text");
-                let typingTimeout = null;
-
-                if (typewriterTarget) {
-                    const textToType = typewriterTarget.getAttribute("data-text") || "";
-                    const typingSpeed = 45; // Kecepatan ketikan per karakter (ms)
-                    let index = 0;
-
-                    function startTyping() {
-                        clearTimeout(typingTimeout);
-                        typewriterTarget.textContent = "";
-                        index = 0;
-
-                        function typeWriter() {
-                            if (index < textToType.length) {
-                                typewriterTarget.textContent += textToType.charAt(index);
-                                index++;
-                                typingTimeout = setTimeout(typeWriter, typingSpeed);
-                            }
-                        }
-
-                        typingTimeout = setTimeout(typeWriter, 300);
-                    }
-
-                    // IntersectionObserver untuk memicu ulang animasi ketikan saat section terlihat di layar
-                    const heroObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                startTyping();
-                            } else {
-                                clearTimeout(typingTimeout);
-                                typewriterTarget.textContent = "";
-                            }
-                        });
-                    }, { threshold: 0.3 });
-
-                    const heroSection = typewriterTarget.closest('section') || typewriterTarget;
-                    heroObserver.observe(heroSection);
-                }
-
-                // -------------------------------------------------------------
-                // B. INTERAKSI KARAKTER (DRAG & FOLLOW MOUSE / TOUCH)
-                // -------------------------------------------------------------
-                const charCard = document.getElementById("character-card");
-                if (charCard) {
-                    const charImg = charCard.querySelector(".character-img");
-                    let isDragging = false;
-                    let startX = 0, startY = 0;
-                    let currentX = 0, currentY = 0;
-
-                    // 1. TEKAN & TAHAN (MOUSE DOWN / TOUCH START)
-                    charCard.addEventListener("pointerdown", (e) => {
-                        isDragging = true;
-                        startX = e.clientX - currentX;
-                        startY = e.clientY - currentY;
-
-                        if (charImg) charImg.classList.remove("animate-character-float");
-                        charCard.style.transition = "none";
-                        charCard.setPointerCapture(e.pointerId);
-                    });
-
-                    // 2. GESER & IKUTI MOUSE (MOUSE MOVE / TOUCH MOVE)
-                    charCard.addEventListener("pointermove", (e) => {
-                        if (!isDragging) return;
-
-                        currentX = e.clientX - startX;
-                        currentY = e.clientY - startY;
-
-                        charCard.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${currentX * 0.05}deg) scale(1.08)`;
-                    });
-
-                    // 3. LEPAS TAHANAN (SPRING BACK & KEMBALI MELAYANG)
-                    const stopDragging = () => {
-                        if (!isDragging) return;
-                        isDragging = false;
-
-                        charCard.style.transition = "transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-                        charCard.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg) scale(1)";
-
-                        currentX = 0;
-                        currentY = 0;
-
-                        setTimeout(() => {
-                            if (!isDragging && charImg) {
-                                charImg.classList.add("animate-character-float");
-                            }
-                        }, 700);
-                    };
-
-                    charCard.addEventListener("pointerup", stopDragging);
-                    charCard.addEventListener("pointercancel", stopDragging);
-                }
-            });
-        </script>
-        </section>
-
-        <!-- About Me Section -->
-        <style>
-            /* Keadaan awal sebelum di-scroll (Tembus pandang & agak turun) */
-            .reveal-scroll-left {
-                opacity: 0;
-                transform: translateX(-40px);
-                transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-            }
-
-            .reveal-scroll-right {
-                opacity: 0;
-                transform: translateX(40px);
-                transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-            }
-
-            /* Keadaan aktif saat di-scroll ke area penglihatan */
-            .reveal-active {
-                opacity: 1 !important;
-                transform: translate(0, 0) !important;
-            }
-
-            /* Animasi melayang melingkar untuk badge */
-            @keyframes floatSlow {
-
-                0%,
-                100% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-8px);
-                }
-            }
-
-            @keyframes glowPulse {
-
-                0%,
-                100% {
-                    opacity: 0.3;
-                    transform: scale(1);
-                }
-
-                50% {
-                    opacity: 0.7;
-                    transform: scale(1.05);
-                }
-            }
-
-            .animate-float-slow {
-                animation: floatSlow 4s ease-in-out infinite;
-            }
-
-            .animate-glow-pulse {
-                animation: glowPulse 3s ease-in-out infinite;
-            }
-        </style>
-
-        <!-- SECTION ABOUT ME -->
+        <!-- ================= SECTION ABOUT ME ================= -->
         <section id="about"
             class="scroll-mt-24 bg-gray-900/40 border border-gray-800/80 hover:border-amber-500/30 rounded-2xl p-6 sm:p-10 transition-all duration-500 overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -427,7 +139,7 @@
                     <p
                         class="text-xs sm:text-sm font-bold text-amber-500 uppercase tracking-widest flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                        {{ data.about_title_sub if data.about_title_sub else 'ABOUT ME' }}
+                        ABOUT ME
                     </p>
 
                     <!-- Headline Utama -->
@@ -438,127 +150,25 @@
 
                     <!-- Deskripsi Main & Sub -->
                     <div class="space-y-3 text-sm sm:text-base text-gray-300 leading-relaxed">
-                        <p class="text-gray-200">{{ data.about_main }}</p>
-                        <p class="text-gray-400 text-sm">{{ data.about_sub }}</p>
-                    </div>
-
-                    <!-- List Centang / Highlights -->
-                    <ul class="space-y-3 pt-2">
-                        {% for highlight in data.about_highlights %}
-                        <li
-                            class="flex items-center gap-3 text-sm sm:text-base font-medium text-gray-200 group/item hover:translate-x-2 transition-transform duration-300 cursor-default">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 rounded-full border border-amber-500/50 bg-amber-500/10 text-amber-400 shrink-0 group-hover/item:border-amber-400 group-hover/item:bg-amber-500/20 group-hover/item:scale-110 transition-all duration-300">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                            <span class="group-hover/item:text-amber-300 transition-colors duration-300">{{ highlight
-                                }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
-
-                    <!-- Tanda Tangan / Nama Artis Portofolio -->
-                    <!-- Style Animasi Interaktif Per Satu Huruf -->
-                    <style>
-                        /* Keyframe Animasi Melompat & Neon Glow Khusus Huruf yang Diklik */
-                        @keyframes singleLetterPop {
-                            0% {
-                                transform: scale(1) translateY(0) rotate(0deg);
-                                color: inherit;
-                                filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0));
-                            }
-
-                            30% {
-                                transform: scale(1.5) translateY(-12px) rotate(-8deg);
-                                color: #38bdf8;
-                                /* Warna Cyan Neon */
-                                filter: drop-shadow(0 0 12px rgba(56, 189, 248, 1)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.9));
-                            }
-
-                            60% {
-                                transform: scale(0.9) translateY(2px) rotate(4deg);
-                                color: #a855f7;
-                                /* Warna Ungu Neon */
-                            }
-
-                            100% {
-                                transform: scale(1) translateY(0) rotate(0deg);
-                                color: inherit;
-                                filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0));
-                            }
-                        }
-
-                        /* Style Huruf Individu (Bisa Diklik & Efek Hover Masing-masing) */
-                        .single-letter-interactive {
-                            display: inline-block;
-                            transition: transform 0.2s ease, color 0.2s ease;
-                            cursor: pointer;
-                            user-select: none;
-                        }
-
-                        /* Feedback visual saat kursor mengarah ke huruf tertentu */
-                        .single-letter-interactive:hover {
-                            transform: scale(1.25) translateY(-3px);
-                            color: #60a5fa;
-                        }
-
-                        /* Trigger Class Animasi Pop Saat Diklik */
-                        .animate-single-letter {
-                            animation: singleLetterPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
-                        }
-                    </style>
-
-                    <!-- Container Teks Nama -->
-                    <div class="pt-4">
-                        <p id="nama-click-trigger"
-                            class="font-serif italic text-2xl sm:text-3xl text-blue-400/90 tracking-wide origin-left inline-block">
-                            {{ data.nama }}
+                        <p class="text-gray-200">
+                            Saya adalah seorang Full-Stack Developer yang suka belajar dan mengembangkan website. Saat
+                            ini, saya terus mengasah kemampuan dalam HTML, CSS, JavaScript, Python, React, dan Node.js,
+                            serta mencoba berbagai teknologi baru untuk menambah pengalaman di dunia web development.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            Di luar dunia pemrograman, saya juga tertarik pada UI/UX Design, cybersecurity, dan desain
+                            poster Islami. Saya senang mempelajari hal baru, mengeksplorasi ide kreatif, serta
+                            mengembangkan keterampilan untuk menciptakan karya digital yang bermanfaat.
                         </p>
                     </div>
 
-                    <!-- Script Pecah Huruf & Event Listener Individu -->
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const nameText = document.getElementById('nama-click-trigger');
-
-                            if (nameText) {
-                                const rawText = nameText.textContent.trim();
-                                nameText.innerHTML = ''; // Kosongkan elemen utama
-
-                                // Pecah string nama menjadi huruf satu per satu
-                                [...rawText].forEach((char) => {
-                                    const span = document.createElement('span');
-                                    span.classList.add('single-letter-interactive');
-
-                                    if (char === ' ') {
-                                        span.innerHTML = '&nbsp;'; // Menjaga spasi antar kata
-                                    } else {
-                                        span.textContent = char;
-                                    }
-
-                                    // Event Listener: Hanya huruf ini yang memicu animasi saat diklik
-                                    span.addEventListener('click', function (e) {
-                                        e.stopPropagation();
-
-                                        // Reset animasi agar bisa dipencet berkali-kali
-                                        span.classList.remove('animate-single-letter');
-                                        void span.offsetWidth; // Trigger reflow JS
-                                        span.classList.add('animate-single-letter');
-                                    });
-
-                                    // Hapus class animasi setelah selesai agar efek hover normal kembali
-                                    span.addEventListener('animationend', function () {
-                                        span.classList.remove('animate-single-letter');
-                                    });
-
-                                    nameText.appendChild(span);
-                                });
-                            }
-                        });
-                    </script>
+                    <!-- Tanda Tangan / Nama Artis Portofolio (Interaktif Per Huruf) -->
+                    <div class="pt-4">
+                        <p id="nama-click-trigger"
+                            class="font-serif italic text-2xl sm:text-3xl text-blue-400/90 tracking-wide origin-left inline-block">
+                            Hammam
+                        </p>
+                    </div>
                 </div>
 
                 <!-- KOLOM KANAN: Gambar Workspace + Floating Badge (Meluncur dari Kanan saat Scroll) -->
@@ -571,8 +181,7 @@
                     <!-- Container Gambar -->
                     <div
                         class="relative w-full h-80 sm:h-[420px] rounded-2xl overflow-hidden border border-gray-800 bg-gray-950 group-hover:border-amber-500/40 transition-colors duration-500">
-                        <img src="{{ url_for('static', filename=data.about_image if data.about_image else 'Programming_coding_background.jpg') }}"
-                            alt="Workspace {{ data.nama }}"
+                        <img src="static/Programming_coding_background.jpg" alt="Workspace Hammam"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
                     </div>
 
@@ -587,144 +196,14 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-lg sm:text-2xl font-bold text-white leading-none">
-                                {{ data.pengalaman_tahun if data.pengalaman_tahun else '3+' }}
-                            </p>
-                            <p class="text-[11px] sm:text-xs text-gray-400 font-medium">
-                                Years Experience
-                            </p>
+                            <p class="text-lg sm:text-2xl font-bold text-white leading-none">3+</p>
+                            <p class="text-[11px] sm:text-xs text-gray-400 font-medium">Years Experience</p>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
-
-        <!-- Script JavaScript Pembaca Scroll (Intersection Observer) -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const observerOptions = {
-                    threshold: 0.2 // Animasi terpicu saat 20% elemen terlihat di layar
-                };
-
-                const scrollObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Tambahkan kelas aktif saat di-scroll ke bawah/atas (masuk layar)
-                            entry.target.classList.add('reveal-active');
-                        } else {
-                            // Hapus kelas aktif saat keluar layar (agar bisa terpicu lagi saat di-scroll ulang)
-                            entry.target.classList.remove('reveal-active');
-                        }
-                    });
-                }, observerOptions);
-
-                // Daftarkan elemen kolom kiri dan kanan untuk di-observe
-                document.querySelectorAll('.reveal-scroll-left, .reveal-scroll-right').forEach(el => {
-                    scrollObserver.observe(el);
-                });
-            });
-        </script>
-
-        <!-- ==================== BAGIAN ORGANISASI ==================== -->
-        <!-- ==================== STYLES ANIMASI HEROIC & CINEMATIC ==================== -->
-        <style>
-            /* Smooth Scrolling Halaman */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Floating Ambient Glowing Orbs */
-            @keyframes heroicOrbFloat {
-
-                0%,
-                100% {
-                    transform: translate(0, 0) scale(1);
-                    opacity: 0.35;
-                }
-
-                50% {
-                    transform: translate(20px, -25px) scale(1.15);
-                    opacity: 0.65;
-                }
-            }
-
-            /* Moving Glowing Border FX */
-            @keyframes borderBeam {
-                0% {
-                    background-position: 0% 50%;
-                }
-
-                50% {
-                    background-position: 100% 50%;
-                }
-
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-
-            .heroic-orb-1 {
-                animation: heroicOrbFloat 8s ease-in-out infinite alternate;
-            }
-
-            .heroic-orb-2 {
-                animation: heroicOrbFloat 10s ease-in-out infinite alternate-reverse;
-            }
-
-            /* State Awal Scroll Reveal Cinematic (3D Perspective Blur & Slide) */
-            .org-cinematic-card {
-                opacity: 0;
-                transform: translateY(55px) rotateX(-8deg) scale(0.96);
-                filter: blur(10px);
-                transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-                will-change: opacity, transform, filter;
-                perspective: 1000px;
-            }
-
-            /* State Aktif Terlihat saat Di-scroll */
-            .org-cinematic-card.is-visible {
-                opacity: 1;
-                transform: translateY(0) rotateX(0deg) scale(1);
-                filter: blur(0);
-            }
-
-            /* Card Glow Interaktif & Border Glowing Beam */
-            .heroic-card-container {
-                position: relative;
-                background: rgba(11, 13, 27, 0.75);
-                backdrop-filter: blur(12px);
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .heroic-card-container::before {
-                content: '';
-                position: absolute;
-                inset: -1px;
-                border-radius: 1rem;
-                padding: 1px;
-                background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.45), rgba(56, 189, 248, 0.15));
-                background-size: 200% 200%;
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask-composite: exclude;
-                pointer-events: none;
-                opacity: 0.35;
-                transition: opacity 0.4s ease;
-            }
-
-            .heroic-card-container:hover::before {
-                opacity: 1;
-                animation: borderBeam 3.5s ease infinite;
-            }
-
-            .heroic-card-container:hover {
-                transform: translateY(-5px) scale(1.008);
-                box-shadow: 0 20px 40px -12px rgba(79, 70, 229, 0.3), 0 0 25px -5px rgba(56, 189, 248, 0.2);
-            }
-        </style>
 
         <!-- ==================== SECTION ORGANISASI ==================== -->
         <section id="organisasi"
@@ -751,173 +230,218 @@
                     Organisasi
                 </h2>
                 <span class="text-xs uppercase tracking-widest text-indigo-400/80 font-mono hidden sm:block">//
-                    EXPERIENCE & LEADERSHIP</span>
+                    EXPERIENCE &amp; LEADERSHIP</span>
             </div>
 
-            <!-- Daftar Organisasi Loop -->
+            <!-- Daftar Organisasi -->
             <div class="relative z-10 space-y-6">
-                {% for item in data.organisasi %}
+
+                <!-- Organisasi 1: Mudabbir -->
                 <div class="org-cinematic-card heroic-card-container rounded-xl p-6 sm:p-8 border border-gray-800/80">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-
-                        <!-- Kolom Kiri: Nama Singkat & Tahun -->
                         <div class="md:col-span-4 lg:col-span-3 space-y-2">
                             <div
                                 class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 backdrop-blur-sm">
                                 <span
                                     class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_#818cf8]"></span>
-                                <h3 class="text-xl font-bold text-indigo-400 tracking-wide">
-                                    {{ item.short_name }}
-                                </h3>
+                                <h3 class="text-xl font-bold text-indigo-400 tracking-wide">Mudabbir</h3>
                             </div>
                             <p class="text-sm font-medium text-gray-400 font-mono flex items-center gap-1.5 pt-1">
-                                <span>🗓️</span> {{ item.tahun }}
+                                <span>🗓️</span> 2025 – 2026
                             </p>
                         </div>
 
-                        <!-- Kolom Kanan: Detail Jabatan & Deskripsi -->
                         <div class="md:col-span-8 lg:col-span-9 space-y-3">
                             <h3
                                 class="text-2xl font-bold text-white tracking-tight hover:text-indigo-300 transition-colors duration-300">
-                                {{ item.judul }}
+                                Mudabbir (pembimbing santri)
                             </h3>
-
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                {{ item.deskripsi }}
+                                Membimbing dan mengatur kegiatan harian santri, mulai dari jadwal ibadah dan belajar
+                                sampai kedisiplinan asrama.
                             </p>
-
-                            <!-- Poin-poin Tugas -->
                             <ul class="space-y-2 text-sm text-gray-300 pt-1">
-                                {% for p in item.poin %}
                                 <li class="flex items-start gap-2.5 group/point">
                                     <span
                                         class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
                                     <span
                                         class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
-                                        {{ p }}
+                                        Memimpin kelompok santri dan menjadi penghubung dengan pengasuh
                                     </span>
                                 </li>
-                                {% endfor %}
+                                <li class="flex items-start gap-2.5 group/point">
+                                    <span
+                                        class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+                                    <span
+                                        class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
+                                        Menyusun dan mengawasi jadwal kegiatan harian
+                                    </span>
+                                </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
-                {% endfor %}
-            </div>
 
+                <!-- Organisasi 2: Sapala -->
+                <div class="org-cinematic-card heroic-card-container rounded-xl p-6 sm:p-8 border border-gray-800/80">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-4 lg:col-span-3 space-y-2">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 backdrop-blur-sm">
+                                <span
+                                    class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_#818cf8]"></span>
+                                <h3 class="text-xl font-bold text-indigo-400 tracking-wide">Sapala</h3>
+                            </div>
+                            <p class="text-sm font-medium text-gray-400 font-mono flex items-center gap-1.5 pt-1">
+                                <span>🗓️</span> 2024 – 2025
+                            </p>
+                        </div>
+
+                        <div class="md:col-span-8 lg:col-span-9 space-y-3">
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight hover:text-indigo-300 transition-colors duration-300">
+                                Pengurus Sapala
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Merancang dan menjalankan program kerja serta kegiatan luar ruangan (outdoor) dan
+                                pecinta alam.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300 pt-1">
+                                <li class="flex items-start gap-2.5 group/point">
+                                    <span
+                                        class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+                                    <span
+                                        class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
+                                        Menjadi panitia dan pelaksana kegiatan dari perencanaan sampai evaluasi
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-2.5 group/point">
+                                    <span
+                                        class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+                                    <span
+                                        class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
+                                        Berkoordinasi dengan pembina, pengurus, dan seluruh anggota
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organisasi 3: OSIS -->
+                <div class="org-cinematic-card heroic-card-container rounded-xl p-6 sm:p-8 border border-gray-800/80">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-4 lg:col-span-3 space-y-2">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 backdrop-blur-sm">
+                                <span
+                                    class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_#818cf8]"></span>
+                                <h3 class="text-xl font-bold text-indigo-400 tracking-wide">OSIS</h3>
+                            </div>
+                            <p class="text-sm font-medium text-gray-400 font-mono flex items-center gap-1.5 pt-1">
+                                <span>🗓️</span> 2024 – 2025
+                            </p>
+                        </div>
+
+                        <div class="md:col-span-8 lg:col-span-9 space-y-3">
+                            <h3
+                                class="text-2xl font-bold text-white tracking-tight hover:text-indigo-300 transition-colors duration-300">
+                                Pengurus OSIS
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Merancang dan menjalankan program kerja serta kegiatan sekolah bersama pengurus lain.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300 pt-1">
+                                <li class="flex items-start gap-2.5 group/point">
+                                    <span
+                                        class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+                                    <span
+                                        class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
+                                        Menjadi panitia acara sekolah dari perencanaan sampai evaluasi
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-2.5 group/point">
+                                    <span
+                                        class="inline-block mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/point:bg-cyan-400 group-hover/point:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+                                    <span
+                                        class="leading-relaxed group-hover/point:text-white transition-colors duration-200">
+                                        Berkoordinasi dengan guru, pembina, dan seluruh seksi
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <!-- ==================== SCRIPT OBSERVER ANIMASI SCROLL DUA ARAH ==================== -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const cinematicCards = document.querySelectorAll('.org-cinematic-card');
-
-                const observerOptions = {
-                    root: null,
-                    threshold: 0.15,
-                    rootMargin: "0px 0px -40px 0px"
-                };
-
-                const scrollObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry, index) => {
-                        if (entry.isIntersecting) {
-                            // Staggered Delay Effect (Efek muncul berurutan yang rapi)
-                            setTimeout(() => {
-                                entry.target.classList.add('is-visible');
-                            }, index * 120);
-                        } else {
-                            // Reset class untuk animasi dua arah (scroll naik & turun)
-                            entry.target.classList.remove('is-visible');
-                        }
-                    });
-                }, observerOptions);
-
-                cinematicCards.forEach(card => scrollObserver.observe(card));
-            });
-        </script>
-
-
-        <!-- Keahlian & Hobi Grid (Dengan Kategori Rapi) -->
+        <!-- ================= KEAHLIAN & HOBI GRID ================= -->
         <section id="skills" class="scroll-mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 perspective-1000">
 
-            <!-- Div 1: Keahlian & Teknologi (Menghilang ke Kiri Cepat) -->
+            <!-- Div 1: Keahlian & Teknologi -->
             <div class="skill-card card-3d reveal-item opacity-0 translate-y-10 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-6 cursor-pointer"
                 style="transform-style: preserve-3d;">
 
                 <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
                     <h3
                         class="text-lg font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3 group-hover:text-blue-400 transition-colors duration-300">
-                        💻 Keahlian & Teknologi
+                        💻 Keahlian &amp; Teknologi
                     </h3>
 
-                    {% if data.skills is mapping %}
-                    {% for kategori, items in data.skills.items() %}
-                    <div class="space-y-2 pt-3">
-                        <p class="text-[11px] font-semibold text-blue-400 uppercase tracking-wider">📌 {{ kategori }}
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            {% for tech in items %}
-                            <span
-                                class="bg-blue-600/10 text-blue-400 text-xs font-medium px-3 py-1.5 rounded-md border border-blue-500/20 hover:scale-105 transition-transform">
-                                {{ tech }}
-                            </span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
                     <div class="flex flex-wrap gap-2 pt-3">
-                        {% for tech in data.skills %}
                         <span
                             class="bg-blue-600/10 text-blue-400 text-xs font-medium px-3 py-1.5 rounded-md border border-blue-500/20 hover:scale-105 transition-transform">
-                            {{ tech }}
+                            React
                         </span>
-                        {% endfor %}
+                        <span
+                            class="bg-blue-600/10 text-blue-400 text-xs font-medium px-3 py-1.5 rounded-md border border-blue-500/20 hover:scale-105 transition-transform">
+                            Node.js
+                        </span>
+                        <span
+                            class="bg-blue-600/10 text-blue-400 text-xs font-medium px-3 py-1.5 rounded-md border border-blue-500/20 hover:scale-105 transition-transform">
+                            Python
+                        </span>
+                        <span
+                            class="bg-blue-600/10 text-blue-400 text-xs font-medium px-3 py-1.5 rounded-md border border-blue-500/20 hover:scale-105 transition-transform">
+                            Tailwind CSS
+                        </span>
                     </div>
-                    {% endif %}
                 </div>
             </div>
 
-            <!-- Div 2: Hobi & Minat (Menghilang ke Bawah Cepat) -->
+            <!-- Div 2: Hobi & Minat -->
             <div class="skill-card card-3d reveal-item opacity-0 translate-y-10 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10 flex flex-col justify-between p-6 cursor-pointer"
                 style="transform-style: preserve-3d;">
 
                 <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
                     <h3
                         class="text-lg font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3 group-hover:text-purple-400 transition-colors duration-300">
-                        ⚽ Hobi & Minat
+                        ⚽ Hobi &amp; Minat
                     </h3>
 
-                    {% if data.hobi is mapping %}
-                    {% for kategori, items in data.hobi.items() %}
-                    <div class="space-y-2 pt-3">
-                        <p class="text-[11px] font-semibold text-purple-400 uppercase tracking-wider">📌 {{ kategori }}
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            {% for item in items %}
-                            <span
-                                class="bg-purple-600/10 text-purple-400 text-xs font-medium px-3 py-1.5 rounded-md border border-purple-500/20 hover:scale-105 transition-transform">
-                                {{ item }}
-                            </span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
                     <div class="flex flex-wrap gap-2 pt-3">
-                        {% for item in data.hobi %}
                         <span
                             class="bg-purple-600/10 text-purple-400 text-xs font-medium px-3 py-1.5 rounded-md border border-purple-500/20 hover:scale-105 transition-transform">
-                            {{ item }}
+                            Programming
                         </span>
-                        {% endfor %}
+                        <span
+                            class="bg-purple-600/10 text-purple-400 text-xs font-medium px-3 py-1.5 rounded-md border border-purple-500/20 hover:scale-105 transition-transform">
+                            Futsal
+                        </span>
+                        <span
+                            class="bg-purple-600/10 text-purple-400 text-xs font-medium px-3 py-1.5 rounded-md border border-purple-500/20 hover:scale-105 transition-transform">
+                            Bulu Tangkis
+                        </span>
+                        <span
+                            class="bg-purple-600/10 text-purple-400 text-xs font-medium px-3 py-1.5 rounded-md border border-purple-500/20 hover:scale-105 transition-transform">
+                            Design Poster Islami
+                        </span>
                     </div>
-                    {% endif %}
                 </div>
             </div>
 
-            <!-- Div 3: Keagamaan (Menghilang ke Kanan Cepat) -->
+            <!-- Div 3: Keagamaan -->
             <div class="skill-card card-3d reveal-item opacity-0 translate-y-10 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col justify-between p-6 cursor-pointer"
                 style="transform-style: preserve-3d;">
 
@@ -927,137 +451,29 @@
                         📖 Keagamaan
                     </h3>
 
-                    {% if data.keagamaan is mapping %}
-                    {% for kategori, items in data.keagamaan.items() %}
-                    <div class="space-y-2 pt-3">
-                        <p class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">📌 {{ kategori }}
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            {% for item in items %}
-                            <span
-                                class="bg-emerald-600/10 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-md border border-emerald-500/20 hover:scale-105 transition-transform">
-                                {{ item }}
-                            </span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
                     <div class="flex flex-wrap gap-2 pt-3">
-                        {% for item in data.keagamaan %}
                         <span
                             class="bg-emerald-600/10 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-md border border-emerald-500/20 hover:scale-105 transition-transform">
-                            {{ item }}
+                            Hafidz Qur'an
                         </span>
-                        {% endfor %}
+                        <span
+                            class="bg-emerald-600/10 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-md border border-emerald-500/20 hover:scale-105 transition-transform">
+                            Sertifikasi Tahfidz
+                        </span>
+                        <span
+                            class="bg-emerald-600/10 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-md border border-emerald-500/20 hover:scale-105 transition-transform">
+                            Sertifikasi Beasiswa Tahfidz
+                        </span>
                     </div>
-                    {% endif %}
                 </div>
             </div>
 
         </section>
 
-        <!-- Script Animasi: Exit Cepat (Scroll Down) & Return Lambat (Scroll Up) -->
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                // 1. INITIAL REVEAL
-                const revealObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.remove('opacity-0', 'translate-y-10');
-                            entry.target.classList.add('opacity-100', 'translate-y-0');
-                            revealObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-
-                document.querySelectorAll('#skills .reveal-item').forEach(el => revealObserver.observe(el));
-
-                // 2. SCROLL BOUNDARY DETECTOR (Cepat saat scroll ke bawah, Lambat saat scroll ke atas)
-                const skillsSection = document.getElementById("skills");
-                const cards = skillsSection.querySelectorAll(".skill-card");
-                let isHovered = false;
-
-                function checkScrollPosition() {
-                    if (isHovered) return;
-
-                    const rect = skillsSection.getBoundingClientRect();
-
-                    // Skenario A: Scroll KE BAWAH -> Menghilang RESPONSIF & CEPAT (0.3s)
-                    if (rect.bottom < 120) {
-                        cards.forEach((card, index) => {
-                            const exitDelay = index * 60; // Delay sangat singkat antar-kartu
-
-                            let transformVal = '';
-                            if (index === 0) transformVal = 'perspective(1000px) translateX(-200px) scale(0.85)';
-                            else if (index === 1) transformVal = 'perspective(1000px) translateY(70px) scale(0.85)';
-                            else transformVal = 'perspective(1000px) translateX(200px) scale(0.85)';
-
-                            card.style.transitionDelay = `${exitDelay}ms`;
-                            card.style.transform = transformVal;
-                            card.style.opacity = '0';
-                            // Durasi menghilang dipercepat menjadi 0.3 detik
-                            card.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-out';
-                        });
-                    }
-                    // Skenario B: Scroll KE ATAS -> Muncul kembali PERLAHAN & HALUS 
-                    else {
-                        cards.forEach((card, index) => {
-                            const returnDelay = 300 + (index * 150); // Delay jeda masuk tetap anggun
-
-                            card.style.transitionDelay = `${returnDelay}ms`;
-                            card.style.transform = 'perspective(1000px) translateX(0px) translateY(0px) rotateX(0deg) rotateY(0deg) scale(1)';
-                            card.style.opacity = '1';
-                            // Durasi muncul tetap diperlambat 2.1 detik
-                            card.style.transition = 'transform 2.1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1)';
-                        });
-                    }
-                }
-
-                window.addEventListener('scroll', checkScrollPosition);
-                checkScrollPosition();
-
-                // 3. INTERACTIVE 3D TILT EFFECT
-                cards.forEach(card => {
-                    card.addEventListener('mouseenter', () => { isHovered = true; });
-
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
-
-                        const rotateX = ((y - centerY) / centerY) * -12;
-                        const rotateY = ((x - centerX) / centerX) * 12;
-
-                        card.style.transitionDelay = '0ms';
-                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-                        card.style.opacity = '1';
-                        card.style.transition = 'transform 0.1s ease-out';
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        isHovered = false;
-                        card.style.transitionDelay = '0ms';
-                        checkScrollPosition();
-                    });
-                });
-            });
-        </script>
-
-        <style>
-            .perspective-1000 {
-                perspective: 1000px;
-            }
-        </style>
-
-
         <!-- ==========================================
-             SECTION: TOOLS AND SKILLS (Setelah About Me)
+             SECTION: TOOLS AND SKILLS
              ========================================== -->
-        <section id="skills"
+        <section id="tools-skills"
             class="scroll-mt-24 mt-8 bg-gray-900/40 border border-gray-800/80 hover:border-amber-500/30 rounded-2xl p-4 xs:p-6 sm:p-8 md:p-10 transition-all duration-500 overflow-hidden relative">
 
             <!-- Watermark Text "AND" di Background -->
@@ -1068,7 +484,7 @@
 
             <div class="relative z-10 flex flex-col items-center text-center">
 
-                <!-- 1. DERETAN KARTU MELENGKUNG (Fanned Skill Cards - Fully Responsive) -->
+                <!-- 1. DERETAN KARTU MELENGKUNG (Fanned Skill Cards) -->
                 <div
                     class="w-full max-w-4xl h-44 xs:h-52 sm:h-64 md:h-72 flex items-end justify-center mb-4 sm:mb-6 reveal-scroll-left overflow-x-auto sm:overflow-visible no-scrollbar py-2">
                     <div
@@ -1168,10 +584,10 @@
                 <!-- 2. TEKS & SUBTITLE -->
                 <div class="space-y-1.5 sm:space-y-2 reveal-scroll-right">
                     <p class="text-[11px] sm:text-xs md:text-sm font-bold text-amber-500 tracking-[0.2em] uppercase">
-                        {{ data.skills_subtitle if data.skills_subtitle else 'DESIGN · DEVELOP · CREATE' }}
+                        DESIGN · DEVELOP · CREATE
                     </p>
                     <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                        {{ data.skills_title if data.skills_title else 'Tools And Skills' }}
+                        Tools And Skills
                     </h2>
                 </div>
 
@@ -1233,7 +649,6 @@
             </div>
         </section>
 
-        <!-- ================= SECTION PORTFOLIO ================= -->
         <!-- ==================== HEADER LUSION STYLE (SELECTED PROJECTS) ==================== -->
         <div
             class="w-full my-8 py-6 border-b border-gray-800/80 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 select-none">
@@ -1291,7 +706,7 @@
             </div>
         </div>
 
-        <!-- ==================== BAGIAN PORTFOLIO UTAMA ANDA ==================== -->
+        <!-- ==================== SECTION PORTFOLIO ==================== -->
         <section id="portfolio"
             class="scroll-mt-24 bg-gray-900/40 border border-gray-800/80 rounded-2xl p-6 sm:p-8 space-y-6">
 
@@ -1299,14 +714,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-1000">
 
                 <!-- ================= KARTU 1: GITHUB PROJECT ================= -->
-                <div class="card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-300 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
+                <div class="portfolio-card card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-300 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
                     style="transform-style: preserve-3d;">
 
                     <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
-                        <!-- Frame Imej Kad -->
                         <div class="relative overflow-hidden h-44 rounded-lg bg-gray-950 p-2 group/img">
-                            <img src="{{ url_for('static', filename='Github.jpg') }}"
-                                alt="Interactive Company Profile & Landing Page"
+                            <img src="static/Github.jpg" alt="Repositori GitHub &amp; Proyek Pengembangan"
                                 class="w-full h-full object-cover rounded transform group-hover:scale-105 transition-transform duration-500 ease-out">
                             <div
                                 class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none">
@@ -1317,9 +730,9 @@
                             <div class="flex items-start justify-between gap-2">
                                 <h3
                                     class="text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                                    Repositori GitHub & Proyek Pengembangan
+                                    Repositori GitHub &amp; Proyek Pengembangan
                                 </h3>
-                                <a href="https://github.com/hmmskuy" target="_blank"
+                                <a href="https://github.com/hmmskuy" target="_blank" rel="noopener noreferrer"
                                     class="text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:scale-125 pt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1356,9 +769,9 @@
                                     class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">Tailwind
                                     CSS</span>
                                 <span
-                                    class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">Html</span>
+                                    class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">HTML</span>
                                 <span
-                                    class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">css</span>
+                                    class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">CSS</span>
                                 <span
                                     class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">React</span>
                             </div>
@@ -1367,7 +780,7 @@
 
                     <div class="p-3 pt-0 space-y-2 border-t border-gray-800/80 mt-4"
                         style="transform: translateZ(30px);">
-                        <a href="https://github.com/hmmskuy" target="_blank"
+                        <a href="https://github.com/hmmskuy" target="_blank" rel="noopener noreferrer"
                             class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-md shadow-blue-500/20">
                             <span>Open Project</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1384,13 +797,12 @@
                 </div>
 
                 <!-- ================= KARTU 2: FIGMA PROJECT ================= -->
-                <div class="card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-500 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
+                <div class="portfolio-card card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-500 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
                     style="transform-style: preserve-3d;">
 
                     <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
-                        <!-- Frame Imej Kad -->
                         <div class="relative overflow-hidden h-44 rounded-lg bg-gray-950 p-2 group/img">
-                            <img src="{{ url_for('static', filename='Figma.jpg') }}" alt="Islamic Poster Design"
+                            <img src="static/Figma.jpg" alt="Islamic Poster Design"
                                 class="w-full h-full object-cover rounded transform group-hover:scale-105 transition-transform duration-500 ease-out">
                             <div
                                 class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none">
@@ -1403,7 +815,7 @@
                                     class="text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
                                     Islamic Poster Design
                                 </h3>
-                                <a href="https://figma.com/@username/file-id" target="_blank"
+                                <a href="https://figma.com/@username/file-id" target="_blank" rel="noopener noreferrer"
                                     class="text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:scale-125 pt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1444,7 +856,7 @@
 
                     <div class="p-3 pt-0 space-y-2 border-t border-gray-800/80 mt-4"
                         style="transform: translateZ(30px);">
-                        <a href="https://figma.com/@username/file-id" target="_blank"
+                        <a href="https://figma.com/@username/file-id" target="_blank" rel="noopener noreferrer"
                             class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-md shadow-blue-500/20">
                             <span>Open Project</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1460,15 +872,13 @@
                     </div>
                 </div>
 
-
                 <!-- ================= KARTU 3: PHOTOBOX STUDIO ================= -->
-                <div class="card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-700 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
+                <div class="portfolio-card card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-700 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
                     style="transform-style: preserve-3d;">
 
                     <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
-                        <!-- Frame Imej Kad -->
                         <div class="relative overflow-hidden h-44 rounded-lg bg-gray-950 p-2 group/img">
-                            <img src="{{ url_for('static', filename='Photobox.jpg') }}" alt="Photobox Studio Web App"
+                            <img src="static/PhotoBox.jpg" alt="Photobox Studio Web App"
                                 class="w-full h-full object-cover rounded transform group-hover:scale-105 transition-transform duration-500 ease-out">
                             <div
                                 class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none">
@@ -1481,7 +891,7 @@
                                     class="text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
                                     Photobox Studio — Digital Photo Booth
                                 </h3>
-                                <a href="https://tanggie2-com.lovable.app/" target="_blank"
+                                <a href="https://tanggie2-com.lovable.app/" target="_blank" rel="noopener noreferrer"
                                     class="text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:scale-125 pt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1515,14 +925,13 @@
                                     class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">CSS</span>
                                 <span
                                     class="bg-blue-600/10 text-blue-400 text-[11px] font-medium px-2 py-0.5 rounded border border-blue-500/20">JavaScript</span>
-
                             </div>
                         </div>
                     </div>
 
                     <div class="p-3 pt-0 space-y-2 border-t border-gray-800/80 mt-4"
                         style="transform: translateZ(30px);">
-                        <a href="https://tanggie2-com.lovable.app/" target="_blank"
+                        <a href="https://tanggie2-com.lovable.app/" target="_blank" rel="noopener noreferrer"
                             class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-md shadow-blue-500/20">
                             <span>Open Project</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1539,14 +948,12 @@
                 </div>
 
                 <!-- ================= KARTU 4: LINGUADAILY ================= -->
-                <div class="card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-1000 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
+                <div class="portfolio-card card-3d reveal-item opacity-0 translate-y-10 transition-all duration-500 ease-out delay-1000 group bg-gray-900/90 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between p-3 cursor-pointer"
                     style="transform-style: preserve-3d;">
 
                     <div style="transform: translateZ(20px); transition: transform 0.3s ease;">
-                        <!-- Frame Imej Kad -->
                         <div class="relative overflow-hidden h-44 rounded-lg bg-gray-950 p-2 group/img">
-                            <img src="{{ url_for('static', filename='multilingual-learning.jpg') }}"
-                                alt="LinguaDaily Language Learning App"
+                            <img src="static/multilingual-learning.jpg" alt="LinguaDaily Language Learning App"
                                 class="w-full h-full object-cover rounded transform group-hover:scale-105 transition-transform duration-500 ease-out">
                             <div
                                 class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none">
@@ -1560,6 +967,7 @@
                                     LinguaDaily — Daily Language Learning
                                 </h3>
                                 <a href="https://multilingual-learning.bolt.host/" target="_blank"
+                                    rel="noopener noreferrer"
                                     class="text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:scale-125 pt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1601,7 +1009,7 @@
 
                     <div class="p-3 pt-0 space-y-2 border-t border-gray-800/80 mt-4"
                         style="transform: translateZ(30px);">
-                        <a href="https://multilingual-learning.bolt.host/" target="_blank"
+                        <a href="https://multilingual-learning.bolt.host/" target="_blank" rel="noopener noreferrer"
                             class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-md shadow-blue-500/20">
                             <span>Open Project</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1620,208 +1028,7 @@
             </div>
         </section>
 
-        <!-- Script Animasi dengan Delay Penyesuaian Scroll Ke Atas -->
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                // 1. STAGGER REVEAL INITIAL ANIMATION
-                const revealObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.remove('opacity-0', 'translate-y-6', 'translate-y-10');
-                            entry.target.classList.add('opacity-100', 'translate-y-0');
-                            revealObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-
-                document.querySelectorAll('.reveal-item').forEach(el => revealObserver.observe(el));
-
-                // 2. SCROLL PAST SECTION BOUNDARY WITH DYNAMIC RETURN DELAY
-                const portfolioSection = document.getElementById('portfolio');
-                const cards = document.querySelectorAll('.card-3d');
-                let isHovered = false;
-
-                function checkScrollPosition() {
-                    if (isHovered) return;
-
-                    const rect = portfolioSection.getBoundingClientRect();
-
-                    // Ketika user melewati section ke bawah
-                    if (rect.bottom < 120) {
-                        cards.forEach((card, index) => {
-                            const offsetX = index % 2 === 0 ? -180 : 180;
-                            card.style.transitionDelay = '0ms';
-                            card.style.transform = `perspective(1000px) translateX(${offsetX}px) scale(0.85)`;
-                            card.style.opacity = '0';
-                            card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out';
-                        });
-                    } else {
-                        // Ketika user scroll kembali ke atas memasuki section
-                        cards.forEach((card, index) => {
-                            const returnDelay = 400 + (index * 150);
-                            card.style.transitionDelay = `${returnDelay}ms`;
-                            card.style.transform = 'perspective(1000px) translateX(0px) rotateX(0deg) rotateY(0deg) scale(1)';
-                            card.style.opacity = '1';
-                            card.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out';
-                        });
-                    }
-                }
-
-                window.addEventListener('scroll', checkScrollPosition);
-                checkScrollPosition();
-
-                // 3. INTERACTIVE 3D TILT EFFECT
-                cards.forEach(card => {
-                    card.addEventListener('mouseenter', () => { isHovered = true; });
-
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
-
-                        const rotateX = ((y - centerY) / centerY) * -12;
-                        const rotateY = ((x - centerX) / centerX) * 12;
-
-                        card.style.transitionDelay = '0ms';
-                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-                        card.style.opacity = '1';
-                        card.style.transition = 'transform 0.1s ease-out';
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        isHovered = false;
-                        card.style.transitionDelay = '0ms';
-                        checkScrollPosition();
-                    });
-                });
-            });
-        </script>
-
-        <style>
-            .perspective-1000 {
-                perspective: 1000px;
-            }
-        </style>
-
-        <!-- ================= SECTION PRESTASI & PENGHARGAAN (SCROLL UP REVEAL ANIMATION) ================= -->
-        <style>
-            /* 1. Garis Timeline Menyala & Efek Flowing Gradient */
-            @keyframes lineGlow {
-                0% {
-                    background-position: 0% 0%;
-                }
-
-                100% {
-                    background-position: 0% 200%;
-                }
-            }
-
-            .timeline-line-animated {
-                background: linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
-                background-size: 100% 200%;
-                animation: lineGlow 4s linear infinite;
-            }
-
-            /* 2. Double Ring Pulse Node (Titik Neon) */
-            @keyframes doublePulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.8), 0 0 0 0 rgba(139, 92, 246, 0.4);
-                }
-
-                50% {
-                    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0), 0 0 0 16px rgba(139, 92, 246, 0);
-                }
-
-                100% {
-                    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0), 0 0 0 0 rgba(139, 92, 246, 0);
-                }
-            }
-
-            .timeline-node {
-                animation: doublePulse 2.5s infinite;
-            }
-
-            /* 3. Efek Shimmer / Kilaan Cahaya pada Frame Sertifikat */
-            @keyframes shine {
-                100% {
-                    left: 125%;
-                }
-            }
-
-            .shimmer-container {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .shimmer-container::after {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -75%;
-                width: 50%;
-                height: 200%;
-                background: linear-gradient(to right,
-                        rgba(255, 255, 255, 0) 0%,
-                        rgba(255, 255, 255, 0.25) 100%);
-                transform: rotate(30deg);
-                transition: none;
-            }
-
-            .shimmer-container:hover::after {
-                animation: shine 0.85s ease-in-out;
-            }
-
-            /* 4. State Sembunyi (Initial Hidden State) */
-            .timeline-item-scroll {
-                opacity: 0;
-                transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-                will-change: transform, opacity;
-            }
-
-            /* Dynamic Classes yang Dipicu oleh JavaScript */
-            /* Saat Scroll ke Atas: Elemen muncul meluncur dari Atas */
-            .reveal-from-top {
-                opacity: 1 !important;
-                transform: translateY(0) scale(1) !important;
-            }
-
-            .hidden-to-bottom {
-                opacity: 0 !important;
-                transform: translateY(-40px) scale(0.95) !important;
-            }
-
-            /* Saat Scroll ke Bawah: Elemen muncul meluncur dari Bawah */
-            .reveal-from-bottom {
-                opacity: 1 !important;
-                transform: translateY(0) scale(1) !important;
-            }
-
-            .hidden-to-top {
-                opacity: 0 !important;
-                transform: translateY(40px) scale(0.95) !important;
-            }
-
-            /* Accordion Details Animation */
-            details[open] summary~* {
-                animation: fadeInDetail 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            }
-
-            @keyframes fadeInDetail {
-                from {
-                    opacity: 0;
-                    transform: translateY(-8px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        </style>
-
+        <!-- ================= SECTION PRESTASI & PENGHARGAAN ================= -->
         <section id="prestasi"
             class="scroll-mt-24 bg-gray-900/40 border border-gray-800/80 rounded-2xl p-6 sm:p-8 space-y-8 mt-10 backdrop-blur-sm transition-all duration-500 hover:border-blue-500/30">
 
@@ -1829,12 +1036,12 @@
             <div class="space-y-1">
                 <span
                     class="text-xs font-semibold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 inline-block">
-                    Achievements & Honors
+                    Achievements &amp; Honors
                 </span>
                 <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
                     <span
                         class="w-2 h-6 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full inline-block animate-pulse"></span>
-                    Prestasi & Penghargaan
+                    Prestasi &amp; Penghargaan
                 </h2>
             </div>
 
@@ -1848,7 +1055,7 @@
                 <div
                     class="absolute -right-10 -bottom-10 w-24 h-24 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all duration-500">
                 </div>
-                💡 <strong class="text-blue-400">Apa itu Prestasi & Penghargaan?</strong> Bagian ini menampilkan bukti
+                💡 <strong class="text-blue-400">Apa itu Prestasi &amp; Penghargaan?</strong> Bagian ini menampilkan bukti
                 validasi atas kompetensi teknis, kemenangan kompetisi, dan pengakuan profesional dalam pengembangan
                 software.
             </div>
@@ -1863,29 +1070,26 @@
                 <!-- ================= TIMELINE PRESTASI 1 ================= -->
                 <div class="timeline-item-scroll hidden-to-top relative group space-y-3">
 
-                    <!-- Node Titik Menyala (Double Ring Pulse) -->
                     <div
                         class="timeline-node absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-gray-950 border-2 border-blue-400 group-hover:bg-blue-400 group-hover:scale-125 transition duration-300">
                     </div>
 
-                    <!-- Kartu Interaktif Glassmorphism -->
                     <div
                         class="bg-gray-900/60 border border-gray-800/80 rounded-xl p-4 sm:p-5 transition-all duration-500 group-hover:border-blue-500/40 group-hover:bg-gray-900/90 group-hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.2)] group-hover:-translate-y-1">
 
-                        <!-- Tag Tahun -->
                         <div
                             class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping"></span>
                             2024
                         </div>
 
-                        <!-- Judul & External Link -->
                         <div class="flex items-start justify-between gap-3">
                             <h3
                                 class="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition duration-300">
                                 Sertifikat Kelulusan Dicoding
                             </h3>
                             <a href="https://drive.google.com/your-certificate-link" target="_blank"
+                                rel="noopener noreferrer"
                                 class="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125 hover:rotate-12 p-1"
                                 title="Lihat Sertifikat">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1895,18 +1099,15 @@
                             </a>
                         </div>
 
-                        <!-- Platform / Sub-judul -->
                         <p class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mt-0.5">
                             Dicoding Indonesia
                         </p>
 
-                        <!-- Deskripsi Bahasa Inggris -->
                         <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mt-2.5 max-w-2xl">
                             A Dicoding certificate demonstrating my commitment to improving programming skills and
                             gaining practical knowledge in software development.
                         </p>
 
-                        <!-- Accordion Terjemahan & Preview Gambar -->
                         <div class="pt-3 space-y-4">
                             <details class="group/trans">
                                 <summary
@@ -1923,45 +1124,38 @@
                                 </div>
                             </details>
 
-                            <!-- Preview Gambar dengan Efek Shimmer -->
                             <div
                                 class="shimmer-container w-48 sm:w-56 h-28 sm:h-32 rounded-lg overflow-hidden border border-gray-800/80 bg-gray-950 p-1 transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-lg shadow-blue-500/10">
-                                <img src="{{ url_for('static', filename='Seritifikat_dicoding_Hammam.jpg') }}"
-                                    alt="Sertifikat kelulusan dicoding"
+                                <img src="static/Seritifikat_dicoding_Hammam.jpg" alt="Sertifikat kelulusan dicoding"
                                     class="w-full h-full object-cover rounded transform group-hover:scale-110 transition duration-700 ease-out">
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- ================= TIMELINE PRESTASI 2 ================= -->
                 <div class="timeline-item-scroll hidden-to-top relative group space-y-3">
 
-                    <!-- Node Titik Menyala -->
                     <div
                         class="timeline-node absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-gray-950 border-2 border-indigo-400 group-hover:bg-indigo-400 group-hover:scale-125 transition duration-300">
                     </div>
 
-                    <!-- Kartu Interaktif Glassmorphism -->
                     <div
                         class="bg-gray-900/60 border border-gray-800/80 rounded-xl p-4 sm:p-5 transition-all duration-500 group-hover:border-indigo-500/40 group-hover:bg-gray-900/90 group-hover:shadow-[0_10px_30px_-10px_rgba(99,102,241,0.2)] group-hover:-translate-y-1">
 
-                        <!-- Tag Tahun -->
                         <div
                             class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping"></span>
                             2024
                         </div>
 
-                        <!-- Judul & External Link -->
                         <div class="flex items-start justify-between gap-3">
                             <h3
                                 class="text-lg sm:text-xl font-bold text-white group-hover:text-indigo-400 transition duration-300">
                                 Sertifikasi Tahfidz 10 Juz
                             </h3>
                             <a href="https://www.canva.com/design/DAHZ1zPw090/grbTEYR_g5DQ0ReSYG-ccw/edit"
-                                target="_blank"
+                                target="_blank" rel="noopener noreferrer"
                                 class="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-125 hover:rotate-12 p-1"
                                 title="Lihat Sertifikat">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1971,19 +1165,16 @@
                             </a>
                         </div>
 
-                        <!-- Platform / Sub-judul -->
                         <p class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mt-0.5">
                             Lembaga Tahfidz Al-Qur'an
                         </p>
 
-                        <!-- Deskripsi Bahasa Inggris -->
                         <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mt-2.5 max-w-2xl">
                             A Quran memorization certification program covering up to 30 Juz. I completed the 10 Juz
                             assessment, demonstrating my dedication, discipline, and commitment to Quran
                             memorization and regular revision (Muraja'ah).
                         </p>
 
-                        <!-- Accordion Terjemahan & Preview Gambar -->
                         <div class="pt-3 space-y-4">
                             <details class="group/trans">
                                 <summary
@@ -2000,44 +1191,37 @@
                                 </div>
                             </details>
 
-                            <!-- Preview Gambar dengan Efek Shimmer -->
                             <div
                                 class="shimmer-container w-48 sm:w-56 h-28 sm:h-32 rounded-lg overflow-hidden border border-gray-800/80 bg-gray-950 p-1 transition-all duration-500 group-hover:border-indigo-500/50 group-hover:shadow-lg shadow-indigo-500/10">
-                                <img src="{{ url_for('static', filename='Sertifikasi_Tahfidz_10 juz.jpg') }}"
-                                    alt="Sertifikasi Tahfidz 10 juz"
+                                <img src="static/Sertifikasi_Tahfidz_10 juz.jpg" alt="Sertifikasi Tahfidz 10 juz"
                                     class="w-full h-full object-cover rounded transform group-hover:scale-110 transition duration-700 ease-out">
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- ================= TIMELINE PRESTASI 3 ================= -->
                 <div class="timeline-item-scroll hidden-to-top relative group space-y-3">
 
-                    <!-- Node Titik Menyala -->
                     <div
                         class="timeline-node absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-gray-950 border-2 border-pink-400 group-hover:bg-pink-400 group-hover:scale-125 transition duration-300">
                     </div>
 
-                    <!-- Kartu Interaktif Glassmorphism -->
                     <div
                         class="bg-gray-900/60 border border-gray-800/80 rounded-xl p-4 sm:p-5 transition-all duration-500 group-hover:border-pink-500/40 group-hover:bg-gray-900/90 group-hover:shadow-[0_10px_30px_-10px_rgba(236,72,153,0.2)] group-hover:-translate-y-1">
 
-                        <!-- Tag Tahun -->
                         <div
                             class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping"></span>
                             2024
                         </div>
 
-                        <!-- Judul & External Link -->
                         <div class="flex items-start justify-between gap-3">
                             <h3
                                 class="text-lg sm:text-xl font-bold text-white group-hover:text-pink-400 transition duration-300">
                                 Penghargaan Desain Canva (5 Proyek)
                             </h3>
-                            <a href="https://www.canva.com" target="_blank"
+                            <a href="https://www.canva.com" target="_blank" rel="noopener noreferrer"
                                 class="text-gray-400 hover:text-pink-400 transition-all duration-300 hover:scale-125 hover:rotate-12 p-1"
                                 title="Lihat Sertifikat">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2047,19 +1231,16 @@
                             </a>
                         </div>
 
-                        <!-- Platform / Sub-judul -->
                         <p class="text-xs font-semibold uppercase tracking-wider text-pink-400 mt-0.5">
                             Canva Design
                         </p>
 
-                        <!-- Deskripsi Bahasa Inggris -->
                         <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mt-2.5 max-w-2xl">
                             An achievement certificate recognizing the successful creation and completion of 5
                             graphic design projects using Canva. This milestone highlights my visual creativity,
                             layout skills, and dedication to crafting high-quality digital designs.
                         </p>
 
-                        <!-- Accordion Terjemahan & Preview Gambar -->
                         <div class="pt-3 space-y-4">
                             <details class="group/trans">
                                 <summary
@@ -2077,11 +1258,9 @@
                                 </div>
                             </details>
 
-                            <!-- Preview Gambar dengan Efek Shimmer -->
                             <div
                                 class="shimmer-container w-48 sm:w-56 h-28 sm:h-32 rounded-lg overflow-hidden border border-gray-800/80 bg-gray-950 p-1 transition-all duration-500 group-hover:border-pink-500/50 group-hover:shadow-lg shadow-pink-500/10">
-                                <img src="{{ url_for('static', filename='sertifikasi_canva.jpg') }}"
-                                    alt="Penghargaan Desain Canva"
+                                <img src="static/sertifikasi_canva.jpg" alt="Penghargaan Desain Canva"
                                     class="w-full h-full object-cover rounded transform group-hover:scale-110 transition duration-700 ease-out">
                             </div>
                         </div>
@@ -2091,83 +1270,7 @@
             </div>
         </section>
 
-        <!-- SCRIPT: Deteksi Direction Scroll & Trigger Animasi Langsung Saat Scroll ke Atas -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const items = document.querySelectorAll('.timeline-item-scroll');
-                let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-                // IntersectionObserver untuk deteksi elemen masuk ke layar
-                const observer = new IntersectionObserver((entries) => {
-                    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const isScrollingUp = currentScrollTop < lastScrollTop;
-
-                    entries.forEach((entry, idx) => {
-                        if (entry.isIntersecting) {
-                            // Berikan sedikit delay bertahap
-                            setTimeout(() => {
-                                if (isScrollingUp) {
-                                    // SCROLL KE ATAS: Muncul meluncur turun dari atas
-                                    entry.target.classList.remove('hidden-to-top', 'hidden-to-bottom', 'reveal-from-bottom');
-                                    entry.target.classList.add('reveal-from-top');
-                                } else {
-                                    // SCROLL KE BAWAH: Muncul meluncur naik dari bawah
-                                    entry.target.classList.remove('hidden-to-top', 'hidden-to-bottom', 'reveal-from-top');
-                                    entry.target.classList.add('reveal-from-bottom');
-                                }
-                            }, idx * 120);
-                        } else {
-                            // Ketika keluar layar, reset state agar animasi bisa dipicu kembali
-                            if (entry.boundingClientRect.top > 0) {
-                                // Keluar dari bawah layar
-                                entry.target.classList.remove('reveal-from-top', 'reveal-from-bottom', 'hidden-to-bottom');
-                                entry.target.classList.add('hidden-to-top');
-                            } else {
-                                // Keluar dari atas layar
-                                entry.target.classList.remove('reveal-from-top', 'reveal-from-bottom', 'hidden-to-top');
-                                entry.target.classList.add('hidden-to-bottom');
-                            }
-                        }
-                    });
-
-                    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-                }, {
-                    threshold: 0.2
-                });
-
-                // Update arah scroll setiap scroll event
-                window.addEventListener('scroll', function () {
-                    let st = window.pageYOffset || document.documentElement.scrollTop;
-                    lastScrollTop = st <= 0 ? 0 : st;
-                }, { passive: true });
-
-                items.forEach(item => observer.observe(item));
-            });
-        </script>
-
-        <!-- Section Kontak Lengkap -->
         <!-- ==================== ANIMASI MARQUEE CONTACT (LUSION STYLE) ==================== -->
-        <style>
-            @keyframes marqueeRight {
-                0% {
-                    transform: translateX(-50%);
-                }
-
-                100% {
-                    transform: translateX(0%);
-                }
-            }
-
-            .animate-marquee-right {
-                display: flex;
-                width: max-content;
-                animation: marqueeRight 18s linear infinite !important;
-                animation-play-state: running !important;
-                pointer-events: none;
-                /* Animasi tetap jalan meskipun diklik / dipencet */
-            }
-        </style>
-
         <div class="w-full overflow-hidden py-6 my-8 bg-zinc-950/80 border-y border-zinc-800/80 select-none">
             <div
                 class="animate-marquee-right flex items-center gap-10 text-5xl md:text-7xl font-serif italic tracking-tight text-white/90">
@@ -2175,7 +1278,6 @@
                 <!-- BLOK 1 -->
                 <div class="flex items-center gap-10 shrink-0">
                     <span>contact</span>
-                    <!-- Icon Bunga Senyum ala Lusion -->
                     <svg class="w-12 h-12 md:w-16 md:h-16 text-white inline-block fill-current" viewBox="0 0 100 100">
                         <circle cx="50" cy="30" r="22" />
                         <circle cx="50" cy="70" r="22" />
@@ -2185,7 +1287,6 @@
                         <circle cx="64" cy="36" r="20" />
                         <circle cx="36" cy="64" r="20" />
                         <circle cx="64" cy="64" r="20" />
-                        <!-- Wajah Senyum -->
                         <path d="M 36 54 Q 50 68 64 54" stroke="#000" stroke-width="5" fill="none"
                             stroke-linecap="round" />
                         <path d="M 38 44 Q 43 40 46 44" stroke="#000" stroke-width="4" fill="none"
@@ -2291,7 +1392,7 @@
             </div>
         </div>
 
-        <!-- ==================== BAGIAN UTAMA CONTACT ME ==================== -->
+        <!-- ==================== SECTION CONTACT ME ==================== -->
         <section id="contact"
             class="scroll-mt-24 bg-gray-900/40 border border-gray-800/80 rounded-2xl p-6 sm:p-8 space-y-8">
             <div class="space-y-2">
@@ -2300,105 +1401,91 @@
                     Contact Me
                 </h2>
                 <p class="text-gray-400 text-sm">
-                    Tertarik dengan Website saya , mau diajarkan untuk menjadi Hafidz Quran Mahir IT? Silakan kirim
-                    pesan melalui formulir di bawah ini atau hubungi kontak langsung.
+                    Tertarik dengan Website saya, mau diajarkan untuk menjadi Hafidz Quran Mahir IT? Silakan hubungi
+                    kontak langsung atau media sosial di bawah ini.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Kartu Informasi Kontak -->
-                <div class="space-y-4">
-                    <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
-                        <div class="p-3 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Email</p>
-                            <a href="mailto:{{ data.email if data.email else 'email@domain.com' }}"
-                                class="text-sm font-medium text-white hover:text-blue-400 transition">
-                                {{ data.email if data.email else 'hhammam668@gmail.com' }}
-                            </a>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Kartu Email -->
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
+                    <div class="p-3 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
                     </div>
-
-                    <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
-                        <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-lg border border-emerald-500/20">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Telepon / WhatsApp
-                            </p>
-                            <p class="text-sm font-medium text-white">
-                                {{ data.telepon if data.telepon else '+62 819-2078-4050' }}
-                            </p>
-                        </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Email</p>
+                        <a href="mailto:hhammam668@gmail.com"
+                            class="text-sm font-medium text-white hover:text-blue-400 transition break-all">
+                            hhammam668@gmail.com
+                        </a>
                     </div>
+                </div>
 
-                    <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
-                        <div class="p-3 bg-purple-500/10 text-purple-400 rounded-lg border border-purple-500/20">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Lokasi</p>
-                            <p class="text-sm font-medium text-white">
-                                {{ data.lokasi if data.lokasi else 'Indonesia' }}
-                            </p>
-                        </div>
+                <!-- Kartu WhatsApp -->
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
+                    <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-lg border border-emerald-500/20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
                     </div>
-
-                    <!-- Tautan Sosial Media -->
-                    <div class="pt-2 flex flex-wrap items-center gap-4">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold whitespace-nowrap">
-                            Tautan Sosial Media
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="https://www.instagram.com/hn_lovestoryy/" target="_blank"
-                                class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium px-4 py-2 rounded-lg border border-gray-700 transition flex items-center gap-2">
-                                Instagram
-                            </a>
-
-                            <a href="https://www.tiktok.com/@jhn_ferdy" target="_blank"
-                                class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium px-4 py-2 rounded-lg border border-gray-700 transition flex items-center gap-2">
-                                Tiktok
-                            </a>
-                        </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Telepon / WhatsApp</p>
+                        <a href="https://wa.me/6281920784050" target="_blank" rel="noopener noreferrer"
+                            class="text-sm font-medium text-white hover:text-emerald-400 transition">
+                            +62 819-2078-4050
+                        </a>
                     </div>
+                </div>
+
+                <!-- Kartu Lokasi -->
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex items-start gap-4">
+                    <div class="p-3 bg-purple-500/10 text-purple-400 rounded-lg border border-purple-500/20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Lokasi</p>
+                        <p class="text-sm font-medium text-white">Indonesia</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tautan Sosial Media -->
+            <div class="pt-2 flex flex-wrap items-center gap-4 border-t border-gray-800/80">
+                <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold whitespace-nowrap">
+                    Tautan Sosial Media
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <a href="https://www.instagram.com/hn_lovestoryy/" target="_blank" rel="noopener noreferrer"
+                        class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium px-4 py-2 rounded-lg border border-gray-700 transition flex items-center gap-2">
+                        Instagram
+                    </a>
+
+                    <a href="https://www.tiktok.com/@jhn_ferdy" target="_blank" rel="noopener noreferrer"
+                        class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium px-4 py-2 rounded-lg border border-gray-700 transition flex items-center gap-2">
+                        TikTok
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="text-center border-t border-gray-800 pt-8 pb-6">
-            <p class="text-xs text-gray-500">&copy; {{ data.nama }}. All rights reserved.</p>
+            <p class="text-xs text-gray-500">&copy; Hammam. All rights reserved.</p>
         </footer>
 
     </main>
 
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
+    <!-- Main Interactive JS -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
